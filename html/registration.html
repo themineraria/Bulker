@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline';">
+    <title>Bulker - Registration</title>
+
+    <link rel="stylesheet" type="text/css" href="../style/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../style/nav.css"/>
+    <link rel="stylesheet" type="text/css" href="../style/registration.css"/>
+
+    <script type="text/javascript" src="../js/constants.js"></script>
+    <script type="text/javascript" src="../js/errors.js"></script>
+    <script type="text/javascript" src="../js/windows_manager.js"></script>
+    <script type="text/javascript" src="../js/registration.js"></script>
+
+  </head>
+  <body>
+    <nav>
+      <button type="button" onclick="Close();"><span>╳</span></button>
+    </nav>
+    <div id="registration_form">
+      <form autocomplete="off">
+        <p>Username:</p> <input id="username_field" type="text" name="Username" />
+        <p>Password:</p> <input id="password_field" type="password" name="Password" />
+        <br><br>
+      </form>
+      <br>
+      <button id="registration_button">create new user</button>
+      <p id="error" style="color: red; font-size: 12px;"></p>
+      <br><br>
+    </div>
+  </body>
+</html>

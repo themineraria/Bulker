@@ -1,0 +1,72 @@
+{
+  "name": "bulker",
+  "version": "0.0.1",
+  "homepage": "https://gitlab.com/cyprien.isnard/bulker",
+  "author": {
+    "name": "Cyprien Isnard",
+    "email": "the.hacker.37000@gmail.com",
+    "url": "https://gitlab.com/cyprien.isnard/bulker"
+  },
+  "main": "main.js",
+  "scripts": {
+    "start": "electron --disable-gpu .",
+    "install": "electron-build-env neon build ../neon --release",
+    "builder-release": "electron-builder .",
+    "packager-release": "electron-packager ."
+  },
+  "devDependencies": {
+    "electron": "^8.0.0",
+    "electron-build-env": "^0.2.0",
+    "electron-builder": "^22.4.1",
+    "electron-packager": "^14.2.1",
+    "eslint": "^6.8.0",
+    "neon-cli": "^0.3.3"
+  },
+  "dependencies": {
+    "@iarna/toml": "^2.2.3",
+    "promise.any": "^2.0.1",
+    "split-file": "^2.2.0",
+    "split.js": "^1.5.11"
+  },
+  "build": {
+    "appId": "fr.cyprienisnard.bulker",
+    "directories": {
+      "output": "electron-builder-release"
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "runAfterFinish": false
+    }
+  },
+  "eslintConfig": {
+    "rules": {
+      "import/no-unresolved": "off"
+    }
+  }
+}

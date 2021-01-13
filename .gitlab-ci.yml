@@ -1,0 +1,91 @@
+variables:
+  SECURE_ANALYZERS_PREFIX: "registry.gitlab.com/gitlab-org/security-products/analyzers"
+  SAST_ANALYZER_IMAGE_TAG: 2
+  SECRETS_ANALYZER_VERSION: 3
+
+#include:
+#  - template: SAST.gitlab-ci.yml
+#  - template: Dependency-Scanning.gitlab-ci.yml
+#  - template: License-Scanning.gitlab-ci.yml
+
+cache:
+  paths:
+    - node_modules/
+
+dependency_scan:
+    image: node:latest
+    stage: build
+    allow_failure: true
+    before_script:
+    - apt update
+    - apt -y install curl
+    - curl https://sh.rustup.rs -sSf | sh -s -- --default-toolchain stable -y
+    - export PATH=$HOME/.cargo/bin:$PATH
+    - cargo install cargo-audit
+    - npm i --package-lock-only
+    script:
+    - npm audit --json > gl-dependency-scanning-report-npm.json
+    - cd neon/native
+    - cargo build --release
+    - cargo audit || true
+    - cargo audit --json > ../../gl-dependency-scanning-report-rust.json
+    artifacts:
+        paths:
+        - gl-dependency-scanning-report-rust.json
+        - gl-dependency-scanning-report-npm.json
+        reports:
+            dependency_scanning:
+            - gl-dependency-scanning-report-npm.json
+        expire_in: 1 week
+    only:
+      - master
+
+#license_scanning:
+#    stage: build
+#    artifacts:
+#      reports:
+#        license_scanning: gl-license-scanning-report.json
+#    rules:
+#      - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+#        when: always
+
+build:
+  image: node:latest
+  stage: build
+  before_script:
+    - npm install
+  script:
+    - npm run builder-release
+  only:
+    - master
+
+audit:
+  image: node:latest
+  stage: test
+  script:
+    - npm audit
+  only:
+  - master
+
+node-sast:
+  image: "$SECURE_ANALYZERS_PREFIX/nodejs-scan:$SAST_ANALYZER_IMAGE_TAG"
+  stage: test
+  script:
+    - /analyzer run
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+      when: always
+
+secret-analyzer:
+  image: "$SECURE_ANALYZERS_PREFIX/secrets:$SECRETS_ANALYZER_VERSION"
+  stage: test
+  script:
+    - /analyzer run
+  only:
+  - master
+  artifacts:
+    paths:
+    - gl-secret-detection-report.json
+    reports:
+      secret_detection: gl-secret-detection-report.json
+    expire_in: 1 week

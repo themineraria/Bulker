@@ -1,0 +1,27 @@
+nav{
+  height: 22px;
+  width: 100%;
+  background-color: #1A2025;
+  border-bottom: 1px solid #1A2025;
+  position: relative;
+  top: 1px;
+  -webkit-app-region: drag
+}
+nav > button {
+  -webkit-app-region: no-drag;
+  background-color: #1A2025;
+  border: none;
+  color: #999;
+  text-align: center;
+  text-decoration: none;
+  font-size: 10px;
+  width: 36px;
+  height: 22px;
+  float: right;
+}
+nav > button:hover{
+  background-color: #3a3f4b;
+}
+nav > button:active{
+  background-color: #999;
+}

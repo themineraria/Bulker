@@ -1,0 +1,24 @@
+TODO
+
+Intégrer un tree d'objets
+Créer la fonction pour tout select et de-select
+Créer la fonction pour move un fichier
+Intégrer le Logo
+Intégrer un truc de chargement
+Empêcher la modification des trucs pendant upload/download, etc. dû aux thread
+Modifier le multi threading par du Async/Await avec Promises
+
+
+Fix bug: après qu'un fichier soit delete, il reste dans les fichier selectionnés
+
+
+V.1 done
+
+Optional:
+-Option pour choisir si la base de donnée doit être clear ou non
+    Keep encrypted file signature after deletion : yes - no
+    (This might help in some rare cases like hard drive backup)
+-Bouton shift pour séléctionner plusieurs fichiers à la fois (attention, c'est un enfer à cause des multiples clouds)
+-Tooltips on hover
+-Update la fonction de delete et upload pour pas re-fetch le tree mais juste update celui en local (pareil pour la dropzone)
+DONE

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' blob:;">
+    <title>Bulker</title>
+
+    <link rel="stylesheet" type="text/css" href="style/index.css"/>
+    <link rel="stylesheet" type="text/css" href="style/nav.css"/>
+    <link rel="stylesheet" type="text/css" href="style/login_form.css"/>
+    <link rel="stylesheet" type="text/css" href="style/errors.css"/>
+    <link rel="stylesheet" type="text/css" href="style/switch.css"/>
+    <link rel="stylesheet" type="text/css" href="style/tools_bar.css"/>
+    <link rel="stylesheet" type="text/css" href="style/explorer.css"/>
+    <link rel="stylesheet" type="text/css" href="style/info.css"/>
+    <link rel="stylesheet" type="text/css" href="style/diskusage.css"/>
+    <link rel="stylesheet" type="text/css" href="style/dropzone.css"/>
+
+    <script type="text/javascript" src="js/constants.js"></script>
+    <script type="text/javascript" src="js/windows_manager.js"></script>
+    <script type="text/javascript" src="js/errors.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/particles.js"></script>
+    <script type="text/javascript" src="js/particles_conf.js"></script>
+    <script type="text/javascript" src="js/split.js"></script>
+    <script type="text/javascript" src="js/slider.js"></script>
+    <script type="text/javascript" src="js/explorer.js"></script>
+    <script type="text/javascript" src="js/disk_space.js"></script>
+    <script type="text/javascript" src="js/tool_bar.js"></script>
+    <script type="text/javascript" src="js/dropzone.js"></script>
+    <script type="text/javascript" src="js/trees_manager.js"></script>
+
+  </head>
+  <body>
+
+    <nav>
+      <button type="button" onclick="Quit();"><span>╳</span></button>
+      <button type="button" onclick="Maximize()"><span>🗖</span></button>
+      <button type="button" onclick="Minimize();"><span>―</span></button>
+    </nav>
+
+    <section>
+      <div id="login_form_container">
+        <div id="particles-js" style="position: absolute; width: 100%; height: 100%;"></div>
+        <br><br>
+        <div id="login_form">
+          <form autocomplete="off">
+            <p>Username:</p>
+            <select id="usernames_selector">
+              <option value =""></option>
+            </select>
+            <p>Password:</p> <input id="password_field" type="password" name="Password" />
+            <br><br>
+          </form>
+          <button id="login_button">Login</button>
+          <br><br>
+          <a id="new_user_link" onclick="OpenRegistration();return false;" href="#">create new user</a>
+        </div>
+      </div>
+      <div style="position: absolute; z-index: 9999; bottom: 5%; width: 100%;" id="animation_switch">
+        <form style="transform: scale(0.5); position: relative; left: calc(50% - 22px);" class="switch_container">
+          <p style="color: #999; text-align: center; width: 500%; position: relative; left: -200%;">Background animation</p>
+          <div class="switch">
+            <input id="animated" type="checkbox" onchange="BackgroundAnimation();" class="switch-input" checked/>
+            <label for="animated" class="switch-label"></label>
+          </div>
+        </form>
+      </div>
+
+      <article style="display: flex; flex-direction: column;">
+        <div class="tools-bar">
+          <img src="img/check_all.png" draggable="false" id="check" title="Check all">
+          <img src="img/download.png" draggable="false" id="download" title="Download">
+          <img src="img/new_file.png" draggable="false" id="upload" title="Upload">
+          <img src="img/new_folder.png" draggable="false" id="create_dir" title="New folder">
+          <img src="img/rename.png" draggable="false" id="rename" title="Rename">
+          <img src="img/move.png" draggable="false" id="move" title="Move">
+          <img src="img/delete.png" draggable="false" id="delete" title="Delete">
+          <img src="img/refresh.png" draggable="false" class="refresh" id="refresh" title="Refresh">
+          <img src="img/settings.png" draggable="false" class="settings" id="settings" title="Settings">
+            <div class="diskusage">
+              <span style="width: 0%" id="progress"></span>
+              <p id="value" onmouseout="DisplayDiskUsedPercentage()">0/0Mb</p>
+              <p id="percent" onmouseover="DisplayDiskRawValues()">0%</p>
+            </div>
+        </div>
+        <div style="display: flex; flex-direction: row; height: 93%;">
+          <div id="explorer">
+            <!--<div class="row" onclick=""> <span id="path" hidden> test </span> <div class="logo"> <img src="img/dropbox.png" draggable="false"> </div> <div class="selector"> <input type="checkbox"> <div class="selectorswitcher" onclick="this.parentNode.children[0].checked=!this.parentNode.children[0].checked;alert('test')"></div> </div> <div class="name"> <img src="img/folder.png" draggable="false"> <p> test </p> </div> <div class="attributes"> </div> </div> -->
+          </div>
+          <aside id="info">
+            <h1>Details</h1>
+            <p>name: <span id="file_name"></span></p>
+            <p>last modified on: <span id="file_date"></span></p>
+            <p>size: <span id="file_size"></span></p>
+            <p>path: <span id="file_path"></span></p>
+            <p>hash: <span id="file_hash"></span></p>
+            <p>encryption: <span id="file_encryption"></span></p>
+          </aside>
+        </div>
+      </article>
+    </section>
+  </body>
+</html>

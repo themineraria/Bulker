@@ -1,0 +1,41 @@
+.diskusage {
+	position: relative;
+	width: 20%;
+  height: 70%;  /* Can be anything */
+  top: 15%;
+  right: 0%;
+	background: #555;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+}
+
+.diskusage > span {
+  display: block;
+  height: 100%;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: rgb(43,194,83);
+  box-shadow:
+    inset 0 2px 9px  rgba(255,255,255,0.3),
+    inset 0 -2px 6px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.diskusage > p {
+  display: block;
+  position: absolute;
+  top: 0;
+  margin: 0;
+  color: #FFF;
+  width: 100%;
+  text-align: center;
+}
+
+.diskusage > #value {
+  display: none;
+}

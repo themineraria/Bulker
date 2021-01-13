@@ -1,0 +1,33 @@
+@font-face {
+  font-family: homizio_nova;
+  src: url(../font/homizio_nova/regular.ttf);
+}
+body {
+  font-family: homizio_nova;
+   color: #888;
+}
+#registration_form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  opacity: 1;
+  align-items: center;
+  color: #999;
+  margin-top: 20px;
+}
+#registration_button {
+  width: 30%;
+  color: #999;
+  background-color: #1a2025;
+  border: none;
+  font-size: 15px;
+  font-family: homizio_nova;
+}
+
+#registration_button:hover{
+  background-color: #3a3f4b;
+  cursor: pointer;
+}
+#registration_button:active{
+  background-color: #999;
+}

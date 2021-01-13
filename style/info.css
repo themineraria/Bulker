@@ -1,0 +1,9 @@
+#info{
+  border-left: 1px solid #1D1D1D;
+  margin-left: -3px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  text-align: center;
+  color: #888;
+  background-color: #282830;
+}

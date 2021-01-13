@@ -1,0 +1,32 @@
+p{
+  color: #FFF;
+}
+textarea{
+  resize: none;
+}
+
+#download-container{
+  height: 150px;
+  width: 97%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  text-align: center;
+}
+#files-to-download{
+  margin-left: 15%;
+  width: 70%;
+  min-height: 60%;
+  max-height: 60%;
+  overflow: auto;
+}
+#selected-path{
+  flex-grow: 1;
+}
+#path-selector-container{
+  min-height: 21px;
+  width: 71%;
+  margin-left: 15%;
+  display: flex;
+  flex-direction: row;
+}

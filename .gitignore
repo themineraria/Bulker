@@ -1,0 +1,6 @@
+node_modules/
+profiles/
+neon/native/target/
+neon/native/artifacts.json
+neon/native/Cargo.lock
+neon/native/index.node

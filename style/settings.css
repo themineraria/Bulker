@@ -1,0 +1,41 @@
+@font-face {
+  font-family: homizio_nova;
+  src: url(../font/homizio_nova/regular.ttf);
+}
+body {
+  font-family: homizio_nova;
+  color: #F8F8F8;
+}
+section {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.tab {
+  background-color: #2C2D34;
+  border: 1px solid #333;
+  padding: .7em 1em;
+  cursor: pointer;
+  z-index: 1;
+}
+.tab:hover {
+  background-color: #40444B;
+}
+div {
+  width: 100%;
+  min-height: 150px;
+  padding: 1em;
+  border-top: 1px solid #333;
+  order: 1;
+}
+input[type=radio], div {
+  display: none;
+}
+input[type=radio]:checked + label {
+  background: #40444B;
+  border-bottom: 1px solid #333;
+}
+input[type=radio]:checked + label + div {
+  display: block;
+}

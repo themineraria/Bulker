@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline';">
+    <title>Bulker - Settings</title>
+
+    <link rel="stylesheet" type="text/css" href="../style/settings.css"/>
+    <link rel="stylesheet" type="text/css" href="../style/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../style/nav.css"/>
+    <link rel="stylesheet" type="text/css" href="../style/switch.css"/>
+
+    <script type="text/javascript" src="../js/constants.js"></script>
+    <script type="text/javascript" src="../js/windows_manager.js"></script>
+    <script type="text/javascript" src="../js/make_id.js"></script>
+    <script type="text/javascript" src="../js/settings.js"></script>
+  </head>
+  <body>
+    <nav>
+      <button type="button" onclick="Close();"><span>╳</span></button>
+    </nav>
+
+    <section>
+
+    <input id="tab-one" type="radio" name="grp" checked="checked"/>
+    <label class="tab" for="tab-one">Général</label>
+    <div>
+      <h1>Work in progress...</h1>
+      <form style="transform: scale(0.8); position: relative; left: calc(50% - 22px);" class="switch_container">
+        <p style="color: #999; text-align: center; width: 500%; position: relative; left: -200%;">Useless switch :</p>
+        <div class="switch">
+          <input id="animated" type="checkbox" onchange="" class="switch-input" checked/>
+          <label for="animated" class="switch-label"></label>
+        </div>
+      </form>
+    </div>
+
+    <input id="tab-two" type="radio" name="grp" />
+    <label class="tab" for="tab-two">Dropbox</label>
+    <div style="padding-top: 30px;">
+      <table style="width: 100%;">
+        <tr style="display: flex;">
+          <td style="width: 50%; text-align: center;">
+              <p></p>
+             <label for="fname">Info : </label>
+             <p></p>
+              <p id ="dropbox_acc_name"></p>
+              <p id ="dropbox_acc_email"></p>
+              <p id ="dropbox_acc_country"></p>
+          </td>
+          <td style="width: 50%; text-align: center;">
+            <p></p>
+            <p style="display:inline;">Status: <span id ="dropbox_status" style="color: red;">Not connected</span></p>
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: center;"><button id="dropbox_connect">Connect</button><button id="dropbox_disconnect">Disconnect</button></td>
+        </tr>
+      </table>
+    </div>
+
+    <input id="tab-three" type="radio" name="grp" />
+    <label class="tab" for="tab-three">Google Drive</label>
+    <div>
+        <table style="width: 100%;">
+          <tr style="display: flex;">
+            <td style="width: 50%; text-align: center;">
+                <p></p>
+               <label for="fname">Info : </label>
+               <p></p>
+                <p id ="gdrive_acc_name"></p>
+                <p id ="gdrive_acc_email"></p>
+            </td>
+            <td style="width: 50%; text-align: center;">
+              <p></p>
+              <p style="display:inline;">Status: <span id ="gdrive_status" style="color: red;">Not connected</span></p>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: center;"><button id="gdrive_connect">Connect</button><button id="gdrive_disconnect">Disconnect</button></td>
+          </tr>
+        </table>
+    </div>
+
+    <input id="tab-four" type="radio" name="grp" />
+    <label class="tab" for="tab-four">One Drive</label>
+    <div>
+      <h1>Work in progress...</h1>
+      <p>Nothing to see here atm !</p>
+    </div>
+
+    </section>
+  </body>
+</html>

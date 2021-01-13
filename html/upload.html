@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline';">
+    <title>Bulker - Upload</title>
+
+    <link rel="stylesheet" type="text/css" href="../style/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../style/nav.css"/>
+    <link rel="stylesheet" type="text/css" href="../style/upload.css"/>
+    <link rel="stylesheet" type="text/css" href="../style/errors.css"/>
+    <link rel="stylesheet" type="text/css" href="../style/switch.css"/>
+
+    <script type="text/javascript" src="../js/constants.js"></script>
+    <script type="text/javascript" src="../js/windows_manager.js"></script>
+    <script type="text/javascript" src="../js/upload.js"></script>
+    <script type="text/javascript" src="../js/make_id.js"></script>
+    <script type="text/javascript" src="../js/trees_manager.js"></script>
+
+  </head>
+  <body>
+    <nav>
+      <button type="button" onclick="Close();"><span>╳</span></button>
+    </nav>
+    <div id="upload-container">
+      <p id="upload-title"></p>
+      <textarea type="text" id="files-to-upload" disabled></textarea>
+      <p>Select a place to upload the file(s) :</p>
+      <div id="path-selector-container">
+        <select id="cloud-selector">
+          <option value =""></option>
+          <option value ="dropbox">dropbox</option>
+        </select>
+        <div style="width: 10px;"></div>
+        <input type="text" placeholder="enter path here..." id="selected-path">
+      </div>
+      <div>
+        <div style="display:flex;justify-content:center;" id="animation_switch">
+          <p>Encryption :</p>
+          <form style="transform: scale(0.6); position: relative; top: 14px;"class="switch_container">
+            <div class="switch">
+              <input id="encryption" type="checkbox" onchange="UploadEncryption();" class="switch-input"/>
+              <label for="encryption" class="switch-label"></label>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div>
+        <button type="button" id="upload">Upload</button>
+      </div>
+    </div>
+  </body>
+</html>

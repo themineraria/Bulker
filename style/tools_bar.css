@@ -1,0 +1,36 @@
+.tools-bar {
+  height: 29px;
+  width: 100%;
+  background-color: #3E4248;
+  border-bottom: 1px solid #222;
+  display: flex;
+  flex-direction: row;
+  padding-left: 10px;
+}
+
+.tools-bar > img{
+  position: relative;
+  margin-left: 5px;
+  margin-right: 2px;
+  height: 25px;
+  width: 23px;
+  top: 1.5px;
+  display: block;
+  border: 1px solid #3E4248;
+}
+
+.tools-bar > img:hover{
+  background-color: #5F6269;
+}
+.tools-bar > img:active{
+  background-color: #999;
+}
+
+.tools-bar > .diskusage {
+  margin-left: 5px;
+  margin-right: 15px;
+}
+
+.tools-bar > .refresh{
+  margin-left: auto;
+}

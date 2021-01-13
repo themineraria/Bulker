@@ -1,0 +1,28 @@
+#dropzone {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(255,255,255,0.05);
+}
+#dropzone > p{
+  text-align: center;
+  padding: 5%;
+  width: 80%;
+  position: relative;
+  left: 5%;
+  top: 20%;
+  background-color: rgba(255,255,255,0.1);
+  border: 2px dashed rgba(255,255,255,0.2);
+  display: inline-block;
+}
+#dropzone-hover{
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: block;
+  position: absolute;
+}

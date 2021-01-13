@@ -1,0 +1,16 @@
+{
+  "name": "neonbulker",
+  "version": "1.0.0",
+  "description": "The rust bulker's backend",
+  "main": "lib/index.js",
+  "author": "Cyp",
+  "license": "MIT",
+  "dependencies": {
+    "neon-cli": "^0.3.3"
+  },
+  "scripts": {
+    "build": "neon build --release",
+    "install": "npm run build",
+    "test": "npm run build"
+  }
+}
