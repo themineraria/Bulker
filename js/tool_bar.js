@@ -69,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function()
       {
         UpdateDiskSpace();
         DownloadFilesList().then(() => {
-          console.log(remote.getGlobal('data').gdrive_tree);
           DisplayExplorer();
         });
       }

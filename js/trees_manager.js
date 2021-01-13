@@ -2,11 +2,16 @@ async function DownloadFilesList()
 {
   //update dropbox files tree using a thread
   return new Promise(resolve => {
-    remote.getGlobal('data').gdrive_tree = JSON.stringify(JSON.parse(require('./neon').getGdriveFilesList(remote.getGlobal('data').user_config['gdrive']['token'])).files);
-    require('./neon').getDropboxFilesList(remote.getGlobal('data').user_config['dropbox']['token'], "", "true", (err, value) => {
-      remote.getGlobal('data').dropbox_tree = JSON.stringify(JSON.parse(value));
-      resolve();
-    });
+      remote.getGlobal('data').gdrive_tree = JSON.stringify(JSON.parse(require('./neon').getGdriveFilesList(remote.getGlobal('data').user_config['gdrive']['token'])).files);
+      require('./neon').getDropboxFilesList(remote.getGlobal('data').user_config['dropbox']['token'], "", "true", (err, value) => {
+        try {
+          remote.getGlobal('data').dropbox_tree = JSON.stringify(JSON.parse(value));
+        }
+        catch (e) {
+          resolve();
+        }
+        resolve();
+      });
   });
 }
 

@@ -47,6 +47,7 @@ function DisplayExplorer(path)
   }
   else { //if we want to display root
     for (cloud in clouds_tree) { //for each tree in clouds_tree
+      if (clouds_tree[cloud])
         JSON.parse(clouds_tree[cloud]).forEach(element => {
           /*check if the element is in the root path
           because all paths starts with a '/' splitting the path of anything in root will give an array with a length of 2*/
